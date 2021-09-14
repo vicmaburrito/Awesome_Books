@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-    <title>Awesome Books</title>
-</head>
-<body>
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+      <title>Awesome Books</title>
+  </head>
+  <body>
     <h1>Books</h1>
     <div class="input">
         <label>Title</label>
@@ -16,20 +16,22 @@
         <label>Author</label>
         <input type="text" value="author" id="author" maxlength="10">
     </div>
-<div>
-    <table class="default">
-        <thead>
-        <tr>
-            <th>Title</th>
-            <th>Author</th>
-        </tr>
-        </thead>
-    </table>
-</div>
+    <div>
+        <table class="default">
+          <thead class="table-header">
+            <tr>
+              <th>Title</th>
+              <th>Author</th>
+            </tr>
+          </thead>
+          <tbody class="table-body">
+          </tbody>
+        </table>
+    </div>
 
-<div class="btn">
-    <button type="button" onclick="save()" class="btn btn-light">Agregar</button>
-</div>
-      <script src="app.js"></script>
-</body>
+    <div class="btn">
+        <button type="button" onclick="addBook('#title', '#author')" class="btn btn-light">Agregar</button>
+    </div>
+    <script src="app.js"></script>
+  </body>
 </html>
