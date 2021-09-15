@@ -28,15 +28,20 @@ Additional description about the project and its features.
 
 ## Authors
 
-👤 **Author1**
+👤 **Manuel Aldaraca**
 
 - GitHub: [@vicmaburrito](https://github.com/githubhandle)
 - LinkedIn: [Manuel Aldaraca](https://www.linkedin.com/in/manuel-aldaraca)
 
-👤 **Author2**
+👤 **Angel Mora**
 
 - GitHub: [@angel-mora](https://github.com/angel-mora)
 - LinkedIn: [AngelMora](https://github.com/angel-mora)
+
+👤 **Miguel Tapia**
+
+- GitHub: [@Meltrust](https://github.com/angel-mora)
+- LinkedIn: [Miguel Tapia](https://github.com/angel-mora)
 
 ## 🤝 Contributing
 

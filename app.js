@@ -96,7 +96,7 @@ document.querySelector('#basic-form').addEventListener('submit', (t) => {
 document.querySelector('#basic-form').addEventListener('click', (t) => {
   destroyBook(t.target);
 
-  const delTitle = t.target.parentElement.previousElementSibling.previousElementSibling.textContent;
+  const delTitle = t.target.parentElement.previousElementSibling.textContent;
 
   const delAuthor = t.target.parentElement.previousElementSibling.textContent;
 
