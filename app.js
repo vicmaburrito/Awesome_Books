@@ -1,3 +1,16 @@
+class Book {
+  constructor(title, author) {
+    this.title = title;
+    this.author = author;
+  }
+}
+
+// LocalStorage Class
+
+class LocalStorageforBooks {
+  
+}
+
 function allBooks() {
   let books;
   if (localStorage.getItem('books') == null) {
