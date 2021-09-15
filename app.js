@@ -19,13 +19,13 @@ class LocalStorageforBooks {
   }
   
   static addBook(newBook) {
-    const getAllBooks = allBooks();
+    const getAllBooks = LocalStorageforBooks.allBooks();
     getAllBooks.push(newBook);
     localStorage.setItem('books', JSON.stringify(getAllBooks));
   }
   
   static deleteBook(title, author) {
-    const books = allBooks();
+    const books = LocalStorageforBooks.allBooks();
   
     books.forEach((book, index) => {
       if (book.title === title && book.author === author) {
@@ -51,9 +51,9 @@ class UserInterface {
   }
   
   static displayBooks() {
-    const books = allBooks();
+    const books = LocalStorageForBooks.allBooks();
     
-    books.forEach((book) => IndexBooks(book));
+    books.forEach((book) => UserInterface.IndexBooks(book));
   }
   
   static clearFields() {
@@ -86,13 +86,13 @@ document.querySelector('#basic-form').addEventListener('submit', (t) => {
 
     location.appendChild(error);
   } else {
-    const book = {};
+    const book = new Book(title, author);
     book.title = title;
     book.author = author;
 
-    IndexBooks(book);
+    UserInterface.IndexBooks(book);
 
-    addBook(book);
+    LocalStorageforBooks.addBook(book);
 
     const success = document.createElement('p');
     const location = document.querySelector('#basic-form');
@@ -101,7 +101,7 @@ document.querySelector('#basic-form').addEventListener('submit', (t) => {
     <small class="alert">Book added</small>
   `;
     location.appendChild(success);
-    clearFields();
+    UserInterface.clearFields();
   }
   setTimeout(() => document.querySelector('.alert').remove(), 2000);
 });
@@ -113,5 +113,5 @@ document.querySelector('#basic-table').addEventListener('click', (t) => {
 
   const delAuthor = t.target.parentElement.previousElementSibling.textContent;
 
-  deleteBook(delTitle, delAuthor);
+  LocalStorageForBooks.deleteBook(delTitle, delAuthor);
 });
