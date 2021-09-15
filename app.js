@@ -93,7 +93,7 @@ document.querySelector('#basic-form').addEventListener('submit', (t) => {
   setTimeout(() => document.querySelector('.alert').remove(), 2000);
 });
 
-document.querySelector('#basic-form').addEventListener('click', (t) => {
+document.querySelector('#basic-table').addEventListener('click', (t) => {
   destroyBook(t.target);
 
   const delTitle = t.target.parentElement.previousElementSibling.textContent;
