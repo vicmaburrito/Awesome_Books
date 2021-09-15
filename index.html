@@ -9,7 +9,7 @@
       integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="/style.css" />
     <title>Awesome Books</title>
   </head>
   <body>
@@ -24,11 +24,17 @@
         </div>
         <form action="submit" id="basic-form" class="m-auto add-form">
           <h2 class="text-center my-4">Add new book</h2>
-          <label>Title </label>
-          <input type="text" name="Title" id="title" />
+          <label></label>
+          <input type="text" name="Title" placeholder="Title" id="title" />
           <br />
-          <label>Author</label>
-          <input type="text" name="Author" id="author" class="mt-2" />
+          <label></label>
+          <input
+            type="text"
+            name="Author"
+            placeholder="Author"
+            id="author"
+            class="mt-2"
+          />
           <br />
           <input type="submit" value="submit" class="btn btn-secondary mt-3" />
         </form>
