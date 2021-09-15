@@ -8,37 +8,36 @@ class Book {
 // LocalStorage Class
 
 class LocalStorageforBooks {
-  
-}
-
-function allBooks() {
-  let books;
-  if (localStorage.getItem('books') == null) {
-    books = [];
-  } else {
-    books = JSON.parse(localStorage.getItem('books'));
-  }
-  return books;
-}
-
-function addBook(newBook) {
-  const getAllBooks = allBooks();
-  getAllBooks.push(newBook);
-  localStorage.setItem('books', JSON.stringify(getAllBooks));
-}
-
-function deleteBook(title, author) {
-  const books = allBooks();
-
-  books.forEach((book, index) => {
-    if (book.title === title && book.author === author) {
-      books.splice(index, 1);
+  static allBooks() {
+    let books;
+    if (localStorage.getItem('books') == null) {
+      books = [];
+    } else {
+      books = JSON.parse(localStorage.getItem('books'));
     }
-  });
-  localStorage.setItem('books', JSON.stringify(books));
+    return books;
+  }
+  
+  static addBook(newBook) {
+    const getAllBooks = allBooks();
+    getAllBooks.push(newBook);
+    localStorage.setItem('books', JSON.stringify(getAllBooks));
+  }
+  
+  static deleteBook(title, author) {
+    const books = allBooks();
+  
+    books.forEach((book, index) => {
+      if (book.title === title && book.author === author) {
+        books.splice(index, 1);
+      }
+    });
+    localStorage.setItem('books', JSON.stringify(books));
+  }
 }
 
-function IndexBooks(book) {
+
+static IndexBooks(book) {
   const row = document.querySelector('#basic-table');
   const item = document.createElement('tr');
 
@@ -51,18 +50,18 @@ function IndexBooks(book) {
   row.appendChild(item);
 }
 
-function displayBooks() {
+static displayBooks() {
   const books = allBooks();
 
   books.forEach((book) => IndexBooks(book));
 }
 
-function clearFields() {
+static clearFields() {
   document.querySelector('#title').value = '';
   document.querySelector('#author').value = '';
 }
 
-function destroyBook(element) {
+static destroyBook(element) {
   if (element.classList.contains('destroy')) {
     element.parentElement.parentElement.remove();
   }
