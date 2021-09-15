@@ -1,35 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-      <title>Awesome Books</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+      crossorigin="anonymous"
+    />
+    <title>Awesome Books</title>
   </head>
   <body>
     <h1>Books</h1>
-    <form action="submit" class="basic-form">
-        <label>Title  </label>
-        <input type="text" name="Title" id="title" >
-    <br>
-        <label>Author</label>
-        <input type="text" name="Author" id="author" >
-<br>
-          <button type="submit" value="submit" class="btn btn-light">Submit</button>
-    </form><br>
+    <form action="submit" id="basic-form">
+      <label>Title </label>
+      <input type="text" name="Title" id="title" />
+      <br />
+      <label>Author</label>
+      <input type="text" name="Author" id="author" />
+      <br />
+      <button type="submit" value="submit" class="btn btn-light">Submit</button>
+    </form>
+    <br />
     <div>
-        <table class="basic-table">
-          <tr>
-            <td>Title</td><td>Author</td>
-          </tr>
-            <tr>
-              <td>Example T1</td><td>Celda A1</td><td><button class="destroy btn btn-light">Remove</button></td>
-            </tr>
-            <tr>
-              <td>Example T2</td><td>Celda A2</td><td><button class="destroy btn btn-light">Remove</button></td>
-
-            </tr>
-        </table>
+      <table id="basic-table">
+        <tr>
+          <td>Title</td>
+          <td>Author</td>
+        </tr>
+        <tr>
+          <td>Example T1</td>
+          <td>Celda A1</td>
+          <td><button class="destroy btn btn-light">Remove</button></td>
+        </tr>
+        <tr>
+          <td>Example T2</td>
+          <td>Celda A2</td>
+          <td><button class="destroy btn btn-light">Remove</button></td>
+        </tr>
+      </table>
     </div>
     <script src="app.js"></script>
   </body>
