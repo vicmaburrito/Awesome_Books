@@ -2,18 +2,18 @@
   width: 60%;
 }
 
-.td {
+tr {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px;
 }
 
-.td p {
+td p {
   margin-bottom: 0%;
 }
 
-tr#basic-table td:nth-child(odd) {
+table#basic-table tr:nth-child(odd) {
   background-color: rgb(190, 190, 190);
 }
 
