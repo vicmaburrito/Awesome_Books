@@ -6,6 +6,13 @@ const books = []
 
 function allBooks() {
   // get books from local storage
+  let books;
+  if (localStorage.getItem('books') == null) {
+    books = [];
+  } else {
+    books = JSON.parse(localStorage.getItem('books'));
+  }
+  return books;
 }
 
 
