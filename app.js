@@ -43,6 +43,12 @@ function IndexBooks(book) {
   // Show all books in table
 }
 
+function displayBooks(){
+  const books = allBooks();
+
+  books.forEach((book) => IndexBooks(book));
+}
+
 function removeBook(book) {
   // Remove book from DOM
 }
