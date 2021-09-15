@@ -12,11 +12,12 @@ function addBook(newBook) {
   const getAllBooks = allBooks();
   getAllBooks.push(newBook);
   localStorage.setItem('books', JSON.stringify(getAllBooks));
-};
+}
 
 function deleteBook(title, author) {
-  const getAllBooks = allBooks();
-  getAllBooks.forEach((book, index) => {
+  const books = allBooks();
+
+  books.forEach((book, index) => {
     if (book.title === title && book.author === author) {
       books.splice(index, 1);
     }
@@ -24,21 +25,20 @@ function deleteBook(title, author) {
   localStorage.setItem('books', JSON.stringify(books));
 }
 
-
 function IndexBooks(book) {
-    const row = document.querySelector('#basic-table');
-    const item = document.createElement('tr');
+  const row = document.querySelector('#basic-table');
+  const item = document.createElement('tr');
 
-    item.innerHTML = `
-    <td>${book.title}</td>
-    <td>${book.author}</td>
-    <td><button class="destroy btn btn-light">Remove</button></td>
-    `;
+  item.innerHTML = `
+  <td>${book.title}</td>
+  <td>${book.author}</td>
+  <td><button class="destroy btn btn-light">Remove</button></td>
+  `;
 
-    row.appendChild(item);
+  row.appendChild(item);
 }
 
-function displayBooks(){
+function displayBooks() {
   const books = allBooks();
 
   books.forEach((book) => IndexBooks(book));
@@ -49,8 +49,8 @@ function clearFields() {
   document.querySelector('#author').value = '';
 }
 
-function destroyBook(book) {
-  if (element.classList.contains('destroy')){
+function destroyBook(element) {
+  if (element.classList.contains('destroy')) {
     element.parentElement.parentElement.remove();
   }
 }
@@ -61,8 +61,8 @@ document.addEventListener('DOMContentLoaded', displayBooks());
 document.querySelector('#basic-form').addEventListener('submit', (t) => {
   t.preventDefault();
 
-const title = document.querySelector('#title').value;
-const author = document.querySelector('#author').value;
+  const title = document.querySelector('#title').value;
+  const author = document.querySelector('#author').value;
 
   if (title === '' || author === '') {
     const error = document.createElement('p');
@@ -74,7 +74,6 @@ const author = document.querySelector('#author').value;
 
     location.appendChild(error);
   } else {
-
     const book = {};
     book.title = title;
     book.author = author;
