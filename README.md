@@ -1,1 +1,64 @@
 # Awesome_Books
+
+![](https://img.shields.io/badge/Microverse-blueviolet)
+
+# Project Name
+
+> Basic website that allows users to add/remove books from a table
+
+![screenshot](./app_screenshot.png)
+
+Additional description about the project and its features.
+
+## Built With
+
+- Javascript
+- HTML 5
+
+## Live Demo
+
+[Live Demo Link](https://livedemo.com)
+
+
+## Getting Started
+
+**This is an example of how you may give instructions on setting up your project locally.**
+**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
+
+
+## Authors
+
+👤 **Manuel Aldaraca**
+
+- GitHub: [@vicmaburrito](https://github.com/vicmaburrito)
+- LinkedIn: [Manuel Aldaraca](https://www.linkedin.com/in/manuel-aldaraca)
+
+👤 **Angel Mora**
+
+- GitHub: [@angel-mora](https://github.com/angel-mora)
+- LinkedIn: [AngelMora](https://github.com/angel-mora)
+
+👤 **Miguel Tapia**
+
+- GitHub: [@meltrust](https://github.com/meltrust)
+- LinkedIn: [Miguel Tapia](https://www.linkedin.com/in/meltrust)
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](../../issues/).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+- Hat tip to anyone whose code was used
+- Inspiration
+- etc
+
+## 📝 License
+
+This project is [MIT](./MIT.md) licensed.
