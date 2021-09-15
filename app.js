@@ -1,3 +1,4 @@
+/* eslint-disable max-classes-per-file */
 class Book {
   constructor(title, author) {
     this.title = title;
@@ -17,16 +18,16 @@ class LocalStorageForBooks {
     }
     return books;
   }
-  
+
   static addBook(newBook) {
     const getAllBooks = LocalStorageForBooks.allBooks();
     getAllBooks.push(newBook);
     localStorage.setItem('books', JSON.stringify(getAllBooks));
   }
-  
+
   static deleteBook(title, author) {
     const books = LocalStorageForBooks.allBooks();
-  
+
     books.forEach((book, index) => {
       if (book.title === title && book.author === author) {
         books.splice(index, 1);
@@ -40,34 +41,34 @@ class UserInterface {
   static IndexBooks(book) {
     const row = document.querySelector('#basic-table');
     const item = document.createElement('tr');
-    
+
     item.innerHTML = `
     <td>${book.title}</td>
     <td>${book.author}</td>
     <td><button class="destroy btn btn-light">Remove</button></td>
     `;
-    
+
     row.appendChild(item);
   }
-  
+
   static displayBooks() {
     const books = LocalStorageForBooks.allBooks();
-    
+
     books.forEach((book) => UserInterface.IndexBooks(book));
   }
-  
+
   static clearFields() {
     document.querySelector('#title').value = '';
     document.querySelector('#author').value = '';
   }
-  
+
   static destroyBook(element) {
     if (element.classList.contains('destroy')) {
       element.parentElement.parentElement.remove();
     }
   }
 }
-  
+
 document.addEventListener('DOMContentLoaded', UserInterface.displayBooks());
 
 document.querySelector('#basic-form').addEventListener('submit', (t) => {
