@@ -43,7 +43,7 @@ class UserInterface {
     const item = document.createElement('tr');
 
     item.innerHTML = `
-    <td><p class="p-0 m-0">"${book.title}" by ${book.author}</p></td>
+    <td class="row-data"><p class="p-0 m-0">"${book.title}" by ${book.author}</p></td>
     <td><p class="d-none">${book.title}</p></td>
     <td><p class="d-none">${book.author}</p></td>
     <td><button class="destroy btn btn-dark">Remove</button></td>

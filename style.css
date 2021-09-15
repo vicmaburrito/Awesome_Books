@@ -26,3 +26,7 @@ table#basic-table tr:nth-child(odd) {
 .book-form input {
   margin: 5px 0;
 }
+
+.row-data {
+  margin-right: 30rem;
+}
