@@ -30,7 +30,7 @@ Additional description about the project and its features.
 
 👤 **Manuel Aldaraca**
 
-- GitHub: [@vicmaburrito](https://github.com/githubhandle)
+- GitHub: [@vicmaburrito](https://github.com/vicmaburrito)
 - LinkedIn: [Manuel Aldaraca](https://www.linkedin.com/in/manuel-aldaraca)
 
 👤 **Angel Mora**
@@ -40,8 +40,8 @@ Additional description about the project and its features.
 
 👤 **Miguel Tapia**
 
-- GitHub: [@Meltrust](https://github.com/angel-mora)
-- LinkedIn: [Miguel Tapia](https://github.com/angel-mora)
+- GitHub: [@meltrust](https://github.com/meltrust)
+- LinkedIn: [Miguel Tapia](https://www.linkedin.com/in/meltrust)
 
 ## 🤝 Contributing
 
