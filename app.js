@@ -18,9 +18,10 @@ function allBooks() {
 
 // User Interface
 
-function addBook() {
-  const createRow = document.getElementsByClassName("table-body").createElement("tr");
-  createRow.appendChild("td", title, body);
+function addBook(newBook) {
+  const getAllBooks = allBooks();
+  getAllBooks.push(newBook);
+  localStorage.setItem('books', JSON.stringify(getAllBooks));
 };
 
 function displayBooks() {
