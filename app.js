@@ -1,61 +1,75 @@
-function allBooks() {
-  let books;
-  if (localStorage.getItem('books') == null) {
-    books = [];
-  } else {
-    books = JSON.parse(localStorage.getItem('books'));
+/* eslint-disable max-classes-per-file */
+class Book {
+  constructor(title, author) {
+    this.title = title;
+    this.author = author;
   }
-  return books;
 }
 
-function addBook(newBook) {
-  const getAllBooks = allBooks();
-  getAllBooks.push(newBook);
-  localStorage.setItem('books', JSON.stringify(getAllBooks));
-}
+// LocalStorage Class
 
-function deleteBook(title, author) {
-  const books = allBooks();
-
-  books.forEach((book, index) => {
-    if (book.title === title && book.author === author) {
-      books.splice(index, 1);
+class LocalStorageForBooks {
+  static allBooks() {
+    let books;
+    if (localStorage.getItem('books') === null) {
+      books = [];
+    } else {
+      books = JSON.parse(localStorage.getItem('books'));
     }
-  });
-  localStorage.setItem('books', JSON.stringify(books));
-}
+    return books;
+  }
 
-function IndexBooks(book) {
-  const row = document.querySelector('#basic-table');
-  const item = document.createElement('tr');
+  static addBook(newBook) {
+    const getAllBooks = LocalStorageForBooks.allBooks();
+    getAllBooks.push(newBook);
+    localStorage.setItem('books', JSON.stringify(getAllBooks));
+  }
 
-  item.innerHTML = `
-  <td>${book.title}</td>
-  <td>${book.author}</td>
-  <td><button class="destroy btn btn-light">Remove</button></td>
-  `;
+  static deleteBook(title, author) {
+    const books = LocalStorageForBooks.allBooks();
 
-  row.appendChild(item);
-}
-
-function displayBooks() {
-  const books = allBooks();
-
-  books.forEach((book) => IndexBooks(book));
-}
-
-function clearFields() {
-  document.querySelector('#title').value = '';
-  document.querySelector('#author').value = '';
-}
-
-function destroyBook(element) {
-  if (element.classList.contains('destroy')) {
-    element.parentElement.parentElement.remove();
+    books.forEach((book, index) => {
+      if (book.title === title && book.author === author) {
+        books.splice(index, 1);
+      }
+    });
+    localStorage.setItem('books', JSON.stringify(books));
   }
 }
 
-document.addEventListener('DOMContentLoaded', displayBooks());
+class UserInterface {
+  static IndexBooks(book) {
+    const row = document.querySelector('#basic-table');
+    const item = document.createElement('tr');
+
+    item.innerHTML = `
+    <td>${book.title}</td>
+    <td>${book.author}</td>
+    <td><button class="destroy btn btn-light">Remove</button></td>
+    `;
+
+    row.appendChild(item);
+  }
+
+  static displayBooks() {
+    const books = LocalStorageForBooks.allBooks();
+
+    books.forEach((book) => UserInterface.IndexBooks(book));
+  }
+
+  static clearFields() {
+    document.querySelector('#title').value = '';
+    document.querySelector('#author').value = '';
+  }
+
+  static destroyBook(element) {
+    if (element.classList.contains('destroy')) {
+      element.parentElement.parentElement.remove();
+    }
+  }
+}
+
+document.addEventListener('DOMContentLoaded', UserInterface.displayBooks());
 
 document.querySelector('#basic-form').addEventListener('submit', (t) => {
   t.preventDefault();
@@ -73,13 +87,13 @@ document.querySelector('#basic-form').addEventListener('submit', (t) => {
 
     location.appendChild(error);
   } else {
-    const book = {};
+    const book = new Book(title, author);
     book.title = title;
     book.author = author;
 
-    IndexBooks(book);
+    UserInterface.IndexBooks(book);
 
-    addBook(book);
+    LocalStorageForBooks.addBook(book);
 
     const success = document.createElement('p');
     const location = document.querySelector('#basic-form');
@@ -88,17 +102,17 @@ document.querySelector('#basic-form').addEventListener('submit', (t) => {
     <small class="alert">Book added</small>
   `;
     location.appendChild(success);
-    clearFields();
+    UserInterface.clearFields();
   }
   setTimeout(() => document.querySelector('.alert').remove(), 2000);
 });
 
 document.querySelector('#basic-table').addEventListener('click', (t) => {
-  destroyBook(t.target);
+  UserInterface.destroyBook(t.target);
 
   const delTitle = t.target.parentElement.previousElementSibling.previousElementSibling.textContent;
 
   const delAuthor = t.target.parentElement.previousElementSibling.textContent;
 
-  deleteBook(delTitle, delAuthor);
+  LocalStorageForBooks.deleteBook(delTitle, delAuthor);
 });
