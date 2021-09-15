@@ -43,9 +43,10 @@ class UserInterface {
     const item = document.createElement('tr');
 
     item.innerHTML = `
-    <td>${book.title}</td>
-    <td>${book.author}</td>
-    <td><button class="destroy btn btn-light">Remove</button></td>
+    <td><p class="p-0 m-0">"${book.title}" by ${book.author}</p></td>
+    <td><p class="d-none">${book.title}</p></td>
+    <td><p class="d-none">${book.author}</p></td>
+    <td><button class="destroy btn btn-dark">Remove</button></td>
     `;
 
     row.appendChild(item);
