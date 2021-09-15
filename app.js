@@ -62,6 +62,9 @@ function destroyBook(book) {
 // Events handling
 
 // DOM to display books when content loaded
+document.addEventListener('DOMContentLoaded', displayBooks());
+
+// Event for adding books UI
 
 document.querySelector('#basic-form').addEventListener('submit', (t) => {
   // default action
@@ -75,8 +78,44 @@ const author = document.querySelector('#author').value;
 
   // Create book in UI
 
-});
+  // Validation
 
+  if (title === '' || author === '') {
+    const error = document.createElement('p');
+    const location = document.querySelector('#basic-form');
+
+    error.innerHTML = `
+    <small class="alert">Please fill all the fields</small>
+  `;
+
+    location.appendChild(error);
+  } else {
+    // Create the book in UI
+
+    const book = {};
+    book.title = title;
+    book.author = author;
+
+    // To UI
+    IndexBooks(book);
+
+    // To storage
+    addBook(book);
+
+    // Success message
+    const success = document.createElement('p');
+    const location = document.querySelector('#basic-form');
+
+    success.innerHTML = `
+    <small class="alert">Book added</small>
+  `;
+    location.appendChild(success);
+    // Clear the fields
+    clearFields();
+  }
+  // Dismiss these alerts after 2 secs
+  setTimeout(() => document.querySelector('.alert').remove(), 2000);
+});
 document.querySelector('#form').addEventListener('click', (t) => {
   removeBook(t.target);
 
