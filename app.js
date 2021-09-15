@@ -7,10 +7,10 @@ class Book {
 
 // LocalStorage Class
 
-class LocalStorageforBooks {
+class LocalStorageForBooks {
   static allBooks() {
     let books;
-    if (localStorage.getItem('books') == null) {
+    if (localStorage.getItem('books') === null) {
       books = [];
     } else {
       books = JSON.parse(localStorage.getItem('books'));
@@ -19,13 +19,13 @@ class LocalStorageforBooks {
   }
   
   static addBook(newBook) {
-    const getAllBooks = LocalStorageforBooks.allBooks();
+    const getAllBooks = LocalStorageForBooks.allBooks();
     getAllBooks.push(newBook);
     localStorage.setItem('books', JSON.stringify(getAllBooks));
   }
   
   static deleteBook(title, author) {
-    const books = LocalStorageforBooks.allBooks();
+    const books = LocalStorageForBooks.allBooks();
   
     books.forEach((book, index) => {
       if (book.title === title && book.author === author) {
@@ -92,7 +92,7 @@ document.querySelector('#basic-form').addEventListener('submit', (t) => {
 
     UserInterface.IndexBooks(book);
 
-    LocalStorageforBooks.addBook(book);
+    LocalStorageForBooks.addBook(book);
 
     const success = document.createElement('p');
     const location = document.querySelector('#basic-form');
@@ -107,7 +107,7 @@ document.querySelector('#basic-form').addEventListener('submit', (t) => {
 });
 
 document.querySelector('#basic-table').addEventListener('click', (t) => {
-  destroyBook(t.target);
+  UserInterface.destroyBook(t.target);
 
   const delTitle = t.target.parentElement.previousElementSibling.previousElementSibling.textContent;
 
