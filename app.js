@@ -40,7 +40,6 @@ function IndexBooks(book) {
     `;
 
     row.appendChild(item);
-  // Show all books in table
 }
 
 function displayBooks(){
@@ -49,8 +48,10 @@ function displayBooks(){
   books.forEach((book) => IndexBooks(book));
 }
 
-function removeBook(book) {
-  // Remove book from DOM
+function destroyBook(book) {
+  if (element.classList.contains('destroy')){
+    element.parentElement.parentElement.remove();
+  }
 }
 
 // Events handling
