@@ -36,38 +36,39 @@ class LocalStorageforBooks {
   }
 }
 
-
-static IndexBooks(book) {
-  const row = document.querySelector('#basic-table');
-  const item = document.createElement('tr');
-
-  item.innerHTML = `
-  <td>${book.title}</td>
-  <td>${book.author}</td>
-  <td><button class="destroy btn btn-light">Remove</button></td>
-  `;
-
-  row.appendChild(item);
-}
-
-static displayBooks() {
-  const books = allBooks();
-
-  books.forEach((book) => IndexBooks(book));
-}
-
-static clearFields() {
-  document.querySelector('#title').value = '';
-  document.querySelector('#author').value = '';
-}
-
-static destroyBook(element) {
-  if (element.classList.contains('destroy')) {
-    element.parentElement.parentElement.remove();
+class UserInterface {
+  static IndexBooks(book) {
+    const row = document.querySelector('#basic-table');
+    const item = document.createElement('tr');
+    
+    item.innerHTML = `
+    <td>${book.title}</td>
+    <td>${book.author}</td>
+    <td><button class="destroy btn btn-light">Remove</button></td>
+    `;
+    
+    row.appendChild(item);
+  }
+  
+  static displayBooks() {
+    const books = allBooks();
+    
+    books.forEach((book) => IndexBooks(book));
+  }
+  
+  static clearFields() {
+    document.querySelector('#title').value = '';
+    document.querySelector('#author').value = '';
+  }
+  
+  static destroyBook(element) {
+    if (element.classList.contains('destroy')) {
+      element.parentElement.parentElement.remove();
+    }
   }
 }
-
-document.addEventListener('DOMContentLoaded', displayBooks());
+  
+document.addEventListener('DOMContentLoaded', UserInterface.displayBooks());
 
 document.querySelector('#basic-form').addEventListener('submit', (t) => {
   t.preventDefault();
