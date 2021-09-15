@@ -8,29 +8,25 @@
   </head>
   <body>
     <h1>Books</h1>
-    <div class="input">
+    <form action="submit" class="basic-form">
         <label>Title</label>
-        <input type="text" value="title" id="title" maxlength="25">
-    </div>
-    <div class="input" id="authorInput">
+        <input type="text" name="Title" id="title" >
+    <br>
         <label>Author</label>
-        <input type="text" value="author" id="author" maxlength="10">
-    </div>
+        <input type="text" name="Author" id="author" >
+    </form>
     <div>
-        <table class="default">
-          <thead class="table-header">
+        <table class="basic-table">
             <tr>
-              <th>Title</th>
-              <th>Author</th>
+              <td>Example T1</td>
             </tr>
-          </thead>
-          <tbody class="table-body">
-          </tbody>
+            <tr>
+              <td>Celda A1</td>
+            </tr>
         </table>
     </div>
-
     <div class="btn">
-        <button type="button" onclick="addBook('#title', '#author')" class="btn btn-light">Agregar</button>
+        <button type="submit" value="submit" class="btn btn-light">Create</button>
     </div>
     <script src="app.js"></script>
   </body>

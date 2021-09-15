@@ -19,7 +19,7 @@ function addBook(newBook) {
 
 function deleteBook(title, author) {
   const getAllBooks = allBooks();
-  getAllBooks.forEach((book index) => {
+  getAllBooks.forEach((book, index) => {
     if (book.title === title && book.author === author) {
       books.splice(index, 1);
     }
@@ -29,13 +29,9 @@ function deleteBook(title, author) {
 
 // User Interface
 
-function addBook(newBook) {
-  const getAllBooks = allBooks();
-  getAllBooks.push(newBook);
-  localStorage.setItem('books', JSON.stringify(getAllBooks));
-};
+function displayBooks(book) {
+    const list = document.querySelector('#basic-table');
 
-function displayBooks() {
   // Show all books in table
 }
 
