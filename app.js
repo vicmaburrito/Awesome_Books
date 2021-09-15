@@ -1,7 +1,4 @@
-// Local Storage
-
 function allBooks() {
-  // get books from local storage
   let books;
   if (localStorage.getItem('books') == null) {
     books = [];
@@ -27,7 +24,6 @@ function deleteBook(title, author) {
   localStorage.setItem('books', JSON.stringify(books));
 }
 
-// User Interface
 
 function IndexBooks(book) {
     const row = document.querySelector('#basic-table');
@@ -59,26 +55,14 @@ function destroyBook(book) {
   }
 }
 
-// Events handling
-
-// DOM to display books when content loaded
 document.addEventListener('DOMContentLoaded', displayBooks());
 
-// Event for adding books UI
 
 document.querySelector('#basic-form').addEventListener('submit', (t) => {
-  // default action
   t.preventDefault();
 
-  // title, author values
 const title = document.querySelector('#title').value;
 const author = document.querySelector('#author').value;
-
-  // Create book in storage
-
-  // Create book in UI
-
-  // Validation
 
   if (title === '' || author === '') {
     const error = document.createElement('p');
@@ -90,19 +74,15 @@ const author = document.querySelector('#author').value;
 
     location.appendChild(error);
   } else {
-    // Create the book in UI
 
     const book = {};
     book.title = title;
     book.author = author;
 
-    // To UI
     IndexBooks(book);
 
-    // To storage
     addBook(book);
 
-    // Success message
     const success = document.createElement('p');
     const location = document.querySelector('#basic-form');
 
@@ -110,14 +90,17 @@ const author = document.querySelector('#author').value;
     <small class="alert">Book added</small>
   `;
     location.appendChild(success);
-    // Clear the fields
     clearFields();
   }
-  // Dismiss these alerts after 2 secs
   setTimeout(() => document.querySelector('.alert').remove(), 2000);
 });
-document.querySelector('#form').addEventListener('click', (t) => {
-  removeBook(t.target);
 
-  // erase target title and author parent tags
+document.querySelector('#basic-form').addEventListener('click', (t) => {
+  destroyBook(t.target);
+
+  const delTitle = t.target.parentElement.previousElementSibling.previousElementSibling.textContent;
+
+  const delAuthor = t.target.parentElement.previousElementSibling.textContent;
+
+  deleteBook(delTitle, delAuthor);
 });
