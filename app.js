@@ -1,7 +1,3 @@
-const inputTitle = document.querySelectorAll('#title');
-const inputAuthor = document.querySelectorAll('#author');
-const books = []
-
 // Local Storage
 
 function allBooks() {
@@ -15,6 +11,21 @@ function allBooks() {
   return books;
 }
 
+function addBook(newBook) {
+  const getAllBooks = allBooks();
+  getAllBooks.push(newBook);
+  localStorage.setItem('books', JSON.stringify(getAllBooks));
+};
+
+function deleteBook(title, author) {
+  const getAllBooks = allBooks();
+  getAllBooks.forEach((book index) => {
+    if (book.title === title && book.author === author) {
+      books.splice(index, 1);
+    }
+  });
+  localStorage.setItem('books', JSON.stringify(books));
+}
 
 // User Interface
 
