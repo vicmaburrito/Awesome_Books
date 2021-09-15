@@ -29,9 +29,17 @@ function deleteBook(title, author) {
 
 // User Interface
 
-function displayBooks(book) {
-    const list = document.querySelector('#basic-table');
+function IndexBooks(book) {
+    const row = document.querySelector('#basic-table');
+    const item = document.createElement('tr');
 
+    item.innerHTML = `
+    <td>${book.title}</td>
+    <td>${book.author}</td>
+    <td><button class="destroy btn btn-light">Remove</button></td>
+    `;
+
+    row.appendChild(item);
   // Show all books in table
 }
 

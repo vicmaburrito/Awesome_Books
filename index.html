@@ -9,24 +9,27 @@
   <body>
     <h1>Books</h1>
     <form action="submit" class="basic-form">
-        <label>Title</label>
+        <label>Title  </label>
         <input type="text" name="Title" id="title" >
     <br>
         <label>Author</label>
         <input type="text" name="Author" id="author" >
-    </form>
+<br>
+          <button type="submit" value="submit" class="btn btn-light">Submit</button>
+    </form><br>
     <div>
         <table class="basic-table">
+          <tr>
+            <td>Title</td><td>Author</td>
+          </tr>
             <tr>
-              <td>Example T1</td>
+              <td>Example T1</td><td>Celda A1</td><td><button class="destroy btn btn-light">Remove</button></td>
             </tr>
             <tr>
-              <td>Celda A1</td>
+              <td>Example T2</td><td>Celda A2</td><td><button class="destroy btn btn-light">Remove</button></td>
+
             </tr>
         </table>
-    </div>
-    <div class="btn">
-        <button type="submit" value="submit" class="btn btn-light">Create</button>
     </div>
     <script src="app.js"></script>
   </body>
