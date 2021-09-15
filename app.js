@@ -57,7 +57,6 @@ function destroyBook(element) {
 
 document.addEventListener('DOMContentLoaded', displayBooks());
 
-
 document.querySelector('#basic-form').addEventListener('submit', (t) => {
   t.preventDefault();
 
