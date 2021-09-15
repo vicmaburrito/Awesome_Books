@@ -48,6 +48,11 @@ function displayBooks(){
   books.forEach((book) => IndexBooks(book));
 }
 
+function clearFields() {
+  document.querySelector('#title').value = '';
+  document.querySelector('#author').value = '';
+}
+
 function destroyBook(book) {
   if (element.classList.contains('destroy')){
     element.parentElement.parentElement.remove();
@@ -58,11 +63,13 @@ function destroyBook(book) {
 
 // DOM to display books when content loaded
 
-document.querySelector('#form').addEventListener('submit', (t) => {
+document.querySelector('#basic-form').addEventListener('submit', (t) => {
   // default action
   t.preventDefault();
 
   // title, author values
+const title = document.querySelector('#title').value;
+const author = document.querySelector('#author').value;
 
   // Create book in storage
 
