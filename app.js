@@ -1,4 +1,5 @@
 /* eslint-disable max-classes-per-file */
+/* eslint-disable eqeqeq */
 class Book {
   constructor(title, author) {
     this.title = title;
