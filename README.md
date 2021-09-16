@@ -15,6 +15,7 @@ Additional description about the project and its features.
 - Javascript
 - HTML 5
 - CSS 3
+- Bootstrap
 
 ## Live Demo
 
