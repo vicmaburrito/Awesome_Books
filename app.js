@@ -1,5 +1,7 @@
 /* eslint-disable max-classes-per-file */
 /* eslint-disable eqeqeq */
+import DateTime from 'luxon';
+
 class Book {
   constructor(title, author) {
     this.title = title;
@@ -11,6 +13,7 @@ class Book {
 
 class LocalStorageForBooks {
   static allBooks() {
+
     let books;
     if (localStorage.getItem('books') === null) {
       books = [];
@@ -118,3 +121,9 @@ document.querySelector('#basic-table').addEventListener('click', (t) => {
 
   LocalStorageForBooks.deleteBook(delTitle, delAuthor);
 });
+
+// Add clock functionality
+
+const timeValue = document.getElementById('clock');
+const currentTime = DateTime.now();
+timeValue.textContentContent = currentTime.toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS);
