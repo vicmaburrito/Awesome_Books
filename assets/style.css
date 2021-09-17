@@ -69,3 +69,26 @@ button {
   align-items: center;
   width: 100%;
 }
+
+#books {
+  width: 90%;
+  height: 100%;
+  display: none;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+}
+
+#add {
+  display: none;
+  width: 50%;
+  text-align: center;
+  margin: 10% auto;
+}
+
+#contactSection {
+  display: none;
+  margin: 10% auto;
+}
+
+
