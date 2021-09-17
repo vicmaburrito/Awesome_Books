@@ -1,6 +1,6 @@
 /* eslint-disable max-classes-per-file */
 /* eslint-disable eqeqeq */
-import DateTime from 'luxon';
+const { DateTime } = luxon; // eslint-disable-line
 
 class Book {
   constructor(title, author) {
@@ -13,7 +13,6 @@ class Book {
 
 class LocalStorageForBooks {
   static allBooks() {
-
     let books;
     if (localStorage.getItem('books') === null) {
       books = [];
