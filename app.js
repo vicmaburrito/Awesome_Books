@@ -52,23 +52,55 @@ class Manipulation {
 
 
 
-  static addBook(newBook) {
-    const getAllBooks = Manipulation.allBooks();
-    getAllBooks.push(newBook);
-    localStorage.setItem('books', JSON.stringify(getAllBooks));
-  }
-
-  static deleteBook(title, author) {
+  static addBook(e) {
+    e.preventDefault();
     const books = Manipulation.allBooks();
+    const title = addTitle.value;
+    const author = addAuthor.value;
+    const error = document.createElement('small');
+    error.className = 'alert';
+    const errLocation = document.querySelector('#error');
+    const br = document.createElement('br');
 
-    books.forEach((book, index) => {
-      if (book.title === title && book.author === author) {
-        books.splice(index, 1);
-      }
-    });
-    localStorage.setItem('books', JSON.stringify(books));
+    if (title === '' || author === '') {
+      error.textContent = 'Please fill all the fields';
+      errLocation.append(error);
+      error.append(br);
+    } else if (Manipulation.isItDuplicate(title, author) === true || error.textContent) {
+      error.textContent = 'Book already exists';
+      errLocation.append(error);
+      error.append(br);
+    } else {
+      const book = new Book(title, author);
+      const li = document.createElement('li');
+      const button = document.createElement('button');
+
+      book.id = Math.floor(Math.random() * 100);
+      books.push(book);
+      localStorage.setItem('books', JSON.stringify(books));
+      addTitle.value = '';
+      addAuthor.value = '';
+
+      li.classList.add('book');
+      li.dataset.id = book.id;
+      li.innerHTML = `<p>"${book.title}" by ${book.author}</p>`;
+      booksList.append(li);
+      li.append(button);
+      button.setAttribute('id', book.id);
+      button.setAttribute('class', 'remove');
+      button.setAttribute('onclick', 'Manipulation.deleteBookMemory(this.id)');
+      button.textContent = 'Remove';
+    }
+    if (error.classList.contains('alert') && (document.querySelector('.alert') !== null)) {
+      setTimeout(() => document.querySelector('.alert').remove(), 2000);
+    }
   }
-}
+
+  static removeBook(elem) {
+    if (elem.classList.contains('remove')) {
+      elem.parentElement.remove();
+    }
+  }
 
 class UserInterface {
   static IndexBooks(book) {
