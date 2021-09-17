@@ -30,13 +30,12 @@ class Manipulation {
     books.forEach((book) => {
       const li = document.createElement('li');
       const button = document.createElement('button');
-
       li.innerHTML = `
       <p>"${book.title}" by ${book.author}</p>`;
       booksList.append(li);
       li.append(button);
       button.setAttribute('id', book.id);
-      button.setAttribute('class', 'remove');
+      button.setAttribute('class', 'remove mb-4');
       button.setAttribute('onclick', 'Manipulation.deleteBookMemory(this.id)');
       button.textContent = 'Remove';
     });
