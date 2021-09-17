@@ -44,10 +44,13 @@
       </div>
     </section>
 
-    <div class="container">
-      <main class="container-fluid">
+    <div id="main">
+      <div id="content">
+        <section id="hero">
+          <h1 class="section-headers">Welcome to awesome books!</h1>
+        </section>
         <section class="mt-3" id="books">
-          <h1 class="text-center">Check this Awesome Books!</h1>
+          <h1 class="text-center section-headers">Check this Awesome Books!</h1>
           <ul id="booksList" class="flexRow"></ul>
         </section>
         <section id="add">
@@ -60,15 +63,15 @@
               type="text"
               name="author"
               placeholder="Author"
-              id="author"
               class="mt-2"
+              id="addAuthor"
             />
             <br />
-            <button type="submit" value="submit" class="btn btn-secondary mt-3" id="addButton" />
+            <button type="submit" value="submit" class="btn btn-secondary mt-3" id="addButton">Add</button> </button>
           </form>
         </section>
         <section id="contactSection">
-          <h1 class="contact-headers">Contact Information</h1>
+          <h1 class="section-headers">Contact Information</h1>
           <p class="contact-text">
             If you have questions or just want to say 'Hello',<br/>
             Reach out to us!
