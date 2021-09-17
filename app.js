@@ -1,8 +1,8 @@
 /* eslint-disable max-classes-per-file */
 /* eslint-disable eqeqeq */
 
+const addButton = document.getElementById('addButton');
 const basicTable = document.getElementById('basicTable');
-
 
 
 
@@ -102,80 +102,35 @@ class Manipulation {
     }
   }
 
-class UserInterface {
-  static IndexBooks(book) {
-    const row = document.querySelector('#basic-table');
-    const item = document.createElement('tr');
-
-    item.innerHTML = `
-    <td class="row-data"><p class="p-0 m-0">"${book.title}" by ${book.author}</p></td>
-    <td><p class="d-none">${book.title}</p></td>
-    <td><p class="d-none">${book.author}</p></td>
-    <td><button class="destroy">Remove</button></td>
-    `;
-
-    row.appendChild(item);
-  }
-
-  static clearFields() {
-    document.querySelector('#title').value = '';
-    document.querySelector('#author').value = '';
-  }
-
-  static destroyBook(element) {
-    if (element.classList.contains('destroy')) {
-      element.parentElement.parentElement.remove();
+  static deleteBookMemory(id) {
+    const books = Manipulation.allBooks();
+    for (let i = 0; i < books.length; i += 1) {
+      if (books[i].id == id) {
+        books.splice(i, 1);
+      }
     }
+    localStorage.setItem('books', JSON.stringify(books));
   }
 }
 
-document.addEventListener('DOMContentLoaded', UserInterface.displayBooks());
+document.addEventListener('DOMContentLoaded', Manipulation.displayBooks);
 
-document.querySelector('#basic-form').addEventListener('submit', (t) => {
-  t.preventDefault();
+addButton.addEventListener('click', Manipulation.addBook);
 
-  const title = document.querySelector('#title').value;
-  const author = document.querySelector('#author').value;
-
-  if (title === '' || author === '') {
-    const error = document.createElement('p');
-    const location = document.querySelector('#basic-form');
-
-    error.innerHTML = `
-    <small class="alert">Please fill all the fields</small>
-  `;
-
-    location.appendChild(error);
-  } else {
-    const book = new Book(title, author);
-    book.title = title;
-    book.author = author;
-
-    UserInterface.IndexBooks(book);
-
-    LocalStorageForBooks.addBook(book);
-
-    const success = document.createElement('p');
-    const location = document.querySelector('#basic-form');
-
-    success.innerHTML = `
-    <small class="alert">Book added</small>
-  `;
-    location.appendChild(success);
-    UserInterface.clearFields();
+basicTable.addEventListener('click', (e) => {
+  if (e.target.previousElementSibling) {
+    Manipulation.removeBook(e.target);
   }
-  setTimeout(() => document.querySelector('.alert').remove(), 2000);
 });
+const listLink = document.getElementById('list');
 
-document.querySelector('#basic-table').addEventListener('click', (t) => {
-  UserInterface.destroyBook(t.target);
+const booksSection = document.getElementById('books');
 
-  const delTitle = t.target.parentElement.previousElementSibling.previousElementSibling.textContent;
+function listLinkClick() {
+  booksSection.style.display = 'flex';
+}
 
-  const delAuthor = t.target.parentElement.previousElementSibling.textContent;
-
-  LocalStorageForBooks.deleteBook(delTitle, delAuthor);
-});
+listLink.addEventListener('click', listLinkClick);
 
 // Add clock functionality
 
