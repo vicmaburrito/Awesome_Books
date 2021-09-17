@@ -1,6 +1,5 @@
 /* eslint-disable max-classes-per-file */
 /* eslint-disable eqeqeq */
-const { DateTime } = luxon; // eslint-disable-line
 
 class Book {
   constructor(title, author) {
@@ -21,7 +20,7 @@ class LocalStorageForBooks {
     }
     return books;
   }
-
+  
   static addBook(newBook) {
     const getAllBooks = LocalStorageForBooks.allBooks();
     getAllBooks.push(newBook);
@@ -44,7 +43,7 @@ class UserInterface {
   static IndexBooks(book) {
     const row = document.querySelector('#basic-table');
     const item = document.createElement('tr');
-
+    
     item.innerHTML = `
     <td class="row-data"><p class="p-0 m-0">"${book.title}" by ${book.author}</p></td>
     <td><p class="d-none">${book.title}</p></td>
@@ -57,15 +56,15 @@ class UserInterface {
 
   static displayBooks() {
     const books = LocalStorageForBooks.allBooks();
-
+    
     books.forEach((book) => UserInterface.IndexBooks(book));
   }
-
+  
   static clearFields() {
     document.querySelector('#title').value = '';
     document.querySelector('#author').value = '';
   }
-
+  
   static destroyBook(element) {
     if (element.classList.contains('destroy')) {
       element.parentElement.parentElement.remove();
@@ -77,10 +76,10 @@ document.addEventListener('DOMContentLoaded', UserInterface.displayBooks());
 
 document.querySelector('#basic-form').addEventListener('submit', (t) => {
   t.preventDefault();
-
+  
   const title = document.querySelector('#title').value;
   const author = document.querySelector('#author').value;
-
+  
   if (title === '' || author === '') {
     const error = document.createElement('p');
     const location = document.querySelector('#basic-form');
@@ -105,17 +104,17 @@ document.querySelector('#basic-form').addEventListener('submit', (t) => {
     success.innerHTML = `
     <small class="alert">Book added</small>
   `;
-    location.appendChild(success);
-    UserInterface.clearFields();
+  location.appendChild(success);
+  UserInterface.clearFields();
   }
   setTimeout(() => document.querySelector('.alert').remove(), 2000);
 });
 
 document.querySelector('#basic-table').addEventListener('click', (t) => {
   UserInterface.destroyBook(t.target);
-
+  
   const delTitle = t.target.parentElement.previousElementSibling.previousElementSibling.textContent;
-
+  
   const delAuthor = t.target.parentElement.previousElementSibling.textContent;
 
   LocalStorageForBooks.deleteBook(delTitle, delAuthor);
@@ -123,6 +122,8 @@ document.querySelector('#basic-table').addEventListener('click', (t) => {
 
 // Add clock functionality
 
+
 const timeValue = document.getElementById('clock');
+const { DateTime } = luxon; // eslint-disable-line
 const currentTime = DateTime.now();
-timeValue.textContentContent = currentTime.toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS);
+timeValue.textContent = currentTime.toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS);
