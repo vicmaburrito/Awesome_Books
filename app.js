@@ -35,7 +35,7 @@ class Manipulation {
       booksList.append(li);
       li.append(button);
       button.setAttribute('id', book.id);
-      button.setAttribute('class', 'remove mb-4');
+      button.setAttribute('class', 'remove');
       button.setAttribute('onclick', 'Manipulation.deleteBookMemory(this.id)');
       button.textContent = 'Remove';
     });
