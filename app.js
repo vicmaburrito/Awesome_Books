@@ -52,10 +52,11 @@ class Manipulation {
 
 
 
-  static addBook(newBook) {
-    const getAllBooks = Manipulation.allBooks();
-    getAllBooks.push(newBook);
-    localStorage.setItem('books', JSON.stringify(getAllBooks));
+  static addBook(e) {
+    e.preventDefault();
+    const books = Manipulation.allBooks();
+    const title = addTitle.value;
+    const author = addAuthor.value;
   }
 
   static deleteBook(title, author) {
