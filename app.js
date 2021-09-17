@@ -2,9 +2,9 @@
 /* eslint-disable eqeqeq */
 
 const addButton = document.getElementById('addButton');
-const basicTable = document.getElementById('basicTable');
-
-
+const booksList = document.getElementById('booksList');
+const addAuthor = document.getElementById('addAuthor');
+const addTitle = document.getElementById('addTitle');
 
 class Book {
   constructor(title, author) {
@@ -28,13 +28,13 @@ class Manipulation {
     const books = Manipulation.allBooks();
 
     books.forEach((book) => {
-      const tr = document.createElement('tr');
+      const li = document.createElement('li');
       const button = document.createElement('button');
 
-      tr.innerHTML = `
-    <td class="row-data"><p class="p-0 m-0">"${book.title}" by ${book.author}</p></td>`;
-      basicTable.append(tr);
-      tr.append(button);
+      li.innerHTML = `
+      <p>"${book.title}" by ${book.author}</p>`;
+      booksList.append(li);
+      li.append(button);
       button.setAttribute('id', book.id);
       button.setAttribute('class', 'remove');
       button.setAttribute('onclick', 'Manipulation.deleteBookMemory(this.id)');
@@ -42,15 +42,15 @@ class Manipulation {
     });
   }
 
-
-
-
-
-
-
-
-
-
+  static isItDuplicate(title, author) {
+    const books = Manipulation.allBooks();
+    for (let i = 0; i < books.length; i += 1) {
+      if (title === books[i].title && author === books[i].author) {
+        return true;
+      }
+    }
+    return false;
+  }
 
   static addBook(e) {
     e.preventDefault();
@@ -117,24 +117,64 @@ document.addEventListener('DOMContentLoaded', Manipulation.displayBooks);
 
 addButton.addEventListener('click', Manipulation.addBook);
 
-basicTable.addEventListener('click', (e) => {
+booksList.addEventListener('click', (e) => {
   if (e.target.previousElementSibling) {
     Manipulation.removeBook(e.target);
   }
 });
-const listLink = document.getElementById('list');
 
+const heroSection = document.getElementById('hero');
 const booksSection = document.getElementById('books');
-
-function listLinkClick() {
-  booksSection.style.display = 'flex';
-}
-
-listLink.addEventListener('click', listLinkClick);
-
-// Add clock functionality
-
+const addSection = document.getElementById('add');
+const contactSection = document.getElementById('contactSection');
 const timeValue = document.getElementById('clock');
 const { DateTime } = luxon; // eslint-disable-line
 const currentTime = DateTime.now();
+
+const homeLink = document.getElementById('logo');
+const listLink = document.getElementById('list');
+const addLink = document.getElementById('addNew');
+const contactLink = document.getElementById('contact');
+
+function homeLinkClick() {
+  heroSection.style.display = 'block';
+  booksSection.style.display = 'none';
+  addSection.style.display = 'none';
+  contactSection.style.display = 'none';
+}
+
+function listLinkClick() {
+  heroSection.style.display = 'none';
+  booksSection.style.display = 'flex';
+  addSection.style.display = 'none';
+  contactSection.style.display = 'none';
+  listLink.style.color = 'blue';
+  addLink.style.color = 'black';
+  contactLink.style.color = 'black';
+}
+
+function addLinkClick() {
+  heroSection.style.display = 'none';
+  booksSection.style.display = 'none';
+  addSection.style.display = 'block';
+  contactSection.style.display = 'none';
+  listLink.style.color = 'black';
+  addLink.style.color = 'blue';
+  contactLink.style.color = 'black';
+}
+
+function contactLinkClick() {
+  heroSection.style.display = 'none';
+  booksSection.style.display = 'none';
+  addSection.style.display = 'none';
+  contactSection.style.display = 'block';
+  listLink.style.color = 'black';
+  addLink.style.color = 'black';
+  contactLink.style.color = 'blue';
+}
+
+homeLink.addEventListener('click', homeLinkClick);
+listLink.addEventListener('click', listLinkClick);
+addLink.addEventListener('click', addLinkClick);
+contactLink.addEventListener('click', contactLinkClick);
 timeValue.textContent = currentTime.toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS);
