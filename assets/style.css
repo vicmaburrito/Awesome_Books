@@ -1,0 +1,104 @@
+#content {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.book-form input {
+  margin: 5px 0;
+}
+
+.row-data {
+  margin-right: 30rem;
+}
+
+button {
+  all: unset;
+  border: 3px solid black;
+  border-radius: 5%;
+  padding: 0.2em 0.4rem;
+  box-shadow: 4px 3px black;
+  background: white;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Required Alignment */
+
+.flexRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.section-headers {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+#books {
+  width: 90%;
+  height: 100%;
+  display: none;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+}
+
+#booksList {
+  padding: 0;
+  border: 5px solid black;
+  width: 100%;
+  max-height: 60vh;
+  overflow-y: scroll;
+}
+
+#booksList li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0.1rem 1.5rem;
+}
+
+#booksList li:nth-child(odd) {
+  background: rgba(128, 128, 128, 0.267);
+}
+
+#add {
+  display: none;
+  width: 50%;
+  text-align: center;
+  margin: 10% auto;
+}
+
+#addBook {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+#contactSection {
+  display: none;
+  margin: 10% auto;
+}
+
+footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
+
+#copyright {
+  margin: 0.5rem;
+  border: 5px solid black;
+  margin-left: 5%;
+  margin-right: 5%;
+  width: 90%;
+  font-weight: bold;
+}
